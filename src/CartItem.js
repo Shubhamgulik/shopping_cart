@@ -9,13 +9,28 @@ class CartItem extends React.Component{
             qty : 1,
             img : ''
         }
+        this.increaseQuantity = this.increaseQuantity.bind(this);
+        this.decreaseQuantity = this.decreaseQuantity.bind(this);
     }
 
     increaseQuantity(){
-        console.log(this.state.qty);
-        this.state.qty += 1; 
-        this.render();
-        return;
+        // setState form 1 : when we dont require prevState
+        // this.setState({
+        //     qty : this.state.qty +1
+        // })
+        // set State form 2 : when required prevState use this
+        this.setState((prevState)=>{
+            return {
+                qty : prevState.qty + 1,
+            }
+        })
+    }
+    decreaseQuantity(){
+        this.setState((prevState)=>{
+            return {
+                qty : prevState.qty - 1,
+            }
+        })
     }
 
     render(){
@@ -35,12 +50,13 @@ class CartItem extends React.Component{
                             className="action-icons"
                             alt="increase" 
                             src="https://cdn-icons-png.flaticon.com/512/992/992651.png" 
-                            onClick={this.increaseQuantity.bind(this)}
+                            onClick={this.increaseQuantity}
                         />
                         <img 
                             className="action-icons" 
                             alt="decrease" 
                             src="https://cdn-icons-png.flaticon.com/512/992/992683.png" 
+                            onClick = { this.state.qty != 0 ? this.decreaseQuantity : ''}
                         
                         />
                         <img
