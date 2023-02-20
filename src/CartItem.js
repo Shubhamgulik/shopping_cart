@@ -3,26 +3,26 @@ import React from "react";
 class CartItem extends React.Component{
     
 
-    increaseQuantity(){
-        // setState form 1 : when we dont require prevState
-        // this.setState({
-        //     qty : this.state.qty +1
-        // })
-        // set State form 2 : when required prevState use this
-        this.setState((prevState)=>{
-            return {
-                qty : prevState.qty + 1,
-            }
-        })
-    }
-    decreaseQuantity(){
-        this.setState((prevState)=>{
-            return {
-                qty : prevState.qty - 1,
-            }
-        })
-    }   
-    
+    // increaseQuantity(){
+    //     // setState form 1 : when we dont require prevState
+    //     // this.setState({
+    //     //     qty : this.state.qty +1
+    //     // })
+    //     // set State form 2 : when required prevState use this
+    //     this.setState((prevState)=>{
+    //         return {
+    //             qty : prevState.qty + 1,
+    //         }
+    //     })
+    // }
+    // decreaseQuantity(){
+    //     this.setState((prevState)=>{
+    //         return {
+    //             qty : prevState.qty - 1,
+    //         }
+    //     })
+    // }   
+     
     
 
     render(){
@@ -43,13 +43,13 @@ class CartItem extends React.Component{
                             className="action-icons"
                             alt="increase" 
                             src="https://cdn-icons-png.flaticon.com/512/992/992651.png" 
-                            onClick={this.increaseQuantity}
+                            onClick={() => this.props.onIncreaseQuantity(this.props.product)}
                         />
                         <img 
                             className="action-icons" 
                             alt="decrease" 
                             src="https://cdn-icons-png.flaticon.com/512/992/992683.png" 
-                            onClick = { qty != 0 ? this.decreaseQuantity : ''}
+                            onClick = {() => this.props.onDecreaseQuantity(this.props.product)}
                         
                         />
                         <img
