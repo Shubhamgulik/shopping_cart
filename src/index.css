@@ -35,6 +35,10 @@ body {
 .cart {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto auto;
+  padding: 1rem;
 }
 
 
