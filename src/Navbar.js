@@ -1,10 +1,15 @@
 const Navbar = (props)=>{
-    return (
+    // const { products } = props;
+    // let total = 0;
+    // for(let product of products){
+    //     total += product.qty;
+    // }
+    return (    
         <div style={styles.nav}>
           <div style={styles.cartIconContainer}>
             <img style={styles.cartIcon} src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" alt="cart-icon" />
-            <span style={styles.cartCount}>3</span>
-          </div>
+            <span style={styles.cartCount}>{props.count}</span>
+          </div>        
         </div>
       );
     
